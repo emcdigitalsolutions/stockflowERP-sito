@@ -4,23 +4,24 @@
 
 /* ---- CSS Variables ---- */
 :root {
-    --primary: #2563EB;
-    --primary-light: #60A5FA;
-    --primary-dark: #1D4ED8;
-    --primary-rgb: 37, 99, 235;
-    --teal: #0D9488;
-    --teal-light: #2DD4BF;
-    --teal-dark: #0F766E;
-    --accent: #F97316;
-    --accent-light: #FB923C;
-    --accent-dark: #EA580C;
+    /* Palette allineata all'app StockFlow ERP reale: oro/ambra su carbone */
+    --primary: #C07821;
+    --primary-light: #E5AB3E;
+    --primary-dark: #9F5B1E;
+    --primary-rgb: 192, 120, 33;
+    --teal: #B8860B;
+    --teal-light: #D4A84B;
+    --teal-dark: #82491F;
+    --accent: #D4912A;
+    --accent-light: #EDC871;
+    --accent-dark: #9F5B1E;
     --success: #22C55E;
     --danger: #EF4444;
     --purple: #8B5CF6;
     --pink: #EC4899;
-    --dark: #0F172A;
-    --dark-lighter: #1E293B;
-    --dark-card: #1a2332;
+    --dark: #1A1A1A;
+    --dark-lighter: #3D3D3D;
+    --dark-card: #252525;
     --off-white: #F8FAFC;
     --gray-50: #F9FAFB;
     --gray-100: #F3F4F6;
@@ -222,8 +223,9 @@ section {
 
 .preloader-logo {
     font-size: 56px;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--primary-light), var(--teal-light), var(--accent));
+    font-weight: 700;
+    font-family: Georgia, 'Times New Roman', serif;
+    background: linear-gradient(135deg, var(--accent-light), var(--primary), var(--teal-dark));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -293,10 +295,12 @@ section {
     justify-content: center;
     width: 38px;
     height: 38px;
-    background: linear-gradient(135deg, var(--primary), var(--teal));
+    background: #1A1A1A;
+    border: 1.5px solid #B8860B;
     border-radius: 10px;
-    color: #fff;
-    font-weight: 800;
+    color: #D4A84B;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 700;
     font-size: 15px;
 }
 
