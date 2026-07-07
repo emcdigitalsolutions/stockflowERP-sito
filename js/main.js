@@ -260,11 +260,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const colors = [
-            'rgba(37, 99, 235, 0.3)',   // blue
-            'rgba(13, 148, 136, 0.3)',   // teal
-            'rgba(249, 115, 22, 0.2)',   // orange
-            'rgba(96, 165, 250, 0.2)',   // light blue
-            'rgba(45, 212, 191, 0.2)',   // light teal
+            'rgba(192, 120, 33, 0.3)',   // blue
+            'rgba(184, 134, 11, 0.3)',   // teal
+            'rgba(212, 145, 42, 0.2)',   // orange
+            'rgba(229, 171, 62, 0.2)',   // light blue
+            'rgba(212, 168, 75, 0.2)',   // light teal
         ];
 
         const shapes = ['circle', 'square', 'triangle'];
@@ -362,13 +362,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
                 const categoryColors = {
-                    'aggiornamento': '#2563EB',
-                    'funzionalita': '#0D9488',
-                    'evento': '#F97316',
-                    'novita': '#8B5CF6'
+                    'aggiornamento': '#C07821',
+                    'funzionalita': '#B8860B',
+                    'evento': '#D4912A',
+                    'novita': '#9F5B1E'
                 };
                 newsGrid.innerHTML = notizie.map((n, i) => {
-                    const color = categoryColors[n.categoria] || '#2563EB';
+                    const color = categoryColors[n.categoria] || '#C07821';
                     const data = n.data || '';
                     return `
                     <div class="news-card" data-aos="fade-up" data-aos-delay="${i * 100}" style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.07);transition:transform 0.3s,box-shadow 0.3s;border:1px solid #f0f0f0">

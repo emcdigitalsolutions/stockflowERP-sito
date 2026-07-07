@@ -4,8 +4,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: #0F172A;
-    border-top: 2px solid #2563EB;
+    background: #1A1A1A;
+    border-top: 2px solid #C07821;
     padding: 1.5rem 2rem;
     z-index: 10000;
     transform: translateY(100%);
@@ -36,13 +36,13 @@
 }
 
 .cookie-banner-text a {
-    color: #60A5FA;
+    color: #E5AB3E;
     text-decoration: underline;
     text-underline-offset: 2px;
 }
 
 .cookie-banner-text a:hover {
-    color: #93C5FD;
+    color: #EDC871;
 }
 
 .cookie-banner-actions {
@@ -64,12 +64,12 @@
 }
 
 .cookie-btn-accept {
-    background: #2563EB;
+    background: #C07821;
     color: #fff;
 }
 
 .cookie-btn-accept:hover {
-    background: #1D4ED8;
+    background: #9F5B1E;
 }
 
 .cookie-btn-reject {
@@ -79,8 +79,8 @@
 }
 
 .cookie-btn-reject:hover {
-    border-color: #60A5FA;
-    color: #60A5FA;
+    border-color: #E5AB3E;
+    color: #E5AB3E;
 }
 
 /* ===== Cookie Gear Icon ===== */
@@ -90,8 +90,8 @@
     right: 25px;
     width: 44px;
     height: 44px;
-    background: #0F172A;
-    border: 2px solid #2563EB;
+    background: #1A1A1A;
+    border: 2px solid #C07821;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -110,7 +110,7 @@
 }
 
 .cookie-gear:hover {
-    background: #2563EB;
+    background: #C07821;
 }
 
 .cookie-gear:hover i {
@@ -118,7 +118,7 @@
 }
 
 .cookie-gear i {
-    color: #2563EB;
+    color: #C07821;
     font-size: 1.1rem;
     transition: color 0.3s ease;
 }
@@ -127,7 +127,7 @@
 .policy-page {
     padding-top: 100px;
     min-height: 100vh;
-    background: #0F172A;
+    background: #1A1A1A;
 }
 
 .policy-content {
@@ -142,7 +142,7 @@
 .policy-content h1 {
     font-family: 'Inter', sans-serif;
     font-weight: 800;
-    color: #60A5FA;
+    color: #E5AB3E;
     font-size: 2.2rem;
     margin-bottom: 0.5rem;
 }
@@ -156,7 +156,7 @@
 .policy-content h2 {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    color: #60A5FA;
+    color: #E5AB3E;
     font-size: 1.4rem;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -165,7 +165,7 @@
 }
 
 .policy-content h3 {
-    color: #0D9488;
+    color: #B8860B;
     font-size: 1.1rem;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
@@ -188,13 +188,13 @@
 }
 
 .policy-content a {
-    color: #60A5FA;
+    color: #E5AB3E;
     text-decoration: underline;
     text-underline-offset: 2px;
 }
 
 .policy-content a:hover {
-    color: #93C5FD;
+    color: #EDC871;
 }
 
 .policy-content strong {
@@ -217,12 +217,12 @@
 
 .policy-content th {
     background: #1E293B;
-    color: #60A5FA;
+    color: #E5AB3E;
     font-weight: 600;
 }
 
 .policy-content td {
-    background: #0F172A;
+    background: #1A1A1A;
 }
 
 .policy-back {
@@ -231,14 +231,14 @@
     gap: 0.5rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    color: #60A5FA;
+    color: #E5AB3E;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .policy-back:hover {
-    color: #93C5FD;
+    color: #EDC871;
 }
 
 /* ===== Responsive ===== */
