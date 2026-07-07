@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ---- Contact Form -> FormSubmit.co ----
+    // ---- Contact Form -> Google Apps Script (servizio EMC) ----
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
@@ -208,34 +208,36 @@ document.addEventListener('DOMContentLoaded', () => {
             const piano = document.getElementById('piano').value;
             const messaggio = document.getElementById('messaggio').value.trim();
 
+            const dettagli = [
+                messaggio,
+                `\n— Negozio: ${negozio || 'Non specificato'}`,
+                `Piano richiesto: ${piano || 'Non specificato'}`
+            ].join('\n');
+
             const data = {
+                site: 'stockflowerp',
                 name: nome,
                 email: email,
-                _subject: `StockFlow - Contatto da ${nome}${negozio ? ` (${negozio})` : ''}`,
-                message: messaggio,
-                negozio: negozio || 'Non specificato',
-                piano: piano || 'Non specificato',
+                phone: '',
+                message: dettagli
             };
 
+            // Servizio contatti Google Apps Script condiviso EMC (routing per 'site')
+            const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxLCgN0-mHN86Dk37a5m-p2A3DgMjc8b__aCO_9oBA_amLUn5MlipebKalo5qNIoSWl/exec';
+
             try {
-                const response = await fetch('https://formsubmit.co/ajax/carusoenricom@gmail.com', {
+                await fetch(ENDPOINT, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify(data)
                 });
-
-                if (response.ok) {
-                    formStatus.textContent = 'Messaggio inviato con successo! Ti risponderemo al più presto.';
-                    formStatus.className = 'form-status success';
-                    contactForm.reset();
-                } else {
-                    throw new Error('Errore invio');
-                }
+                // Con mode:'no-cors' la risposta è opaca: consideriamo l'invio riuscito
+                formStatus.textContent = 'Messaggio inviato con successo! Ti risponderemo al più presto.';
+                formStatus.className = 'form-status success';
+                contactForm.reset();
             } catch {
-                formStatus.textContent = 'Si è verificato un errore. Riprova o scrivici direttamente a carusoenricom@gmail.com';
+                formStatus.textContent = 'Si è verificato un errore. Riprova o scrivici direttamente a emcdigitalsolution@gmail.com';
                 formStatus.className = 'form-status error';
             } finally {
                 submitBtn.disabled = false;
