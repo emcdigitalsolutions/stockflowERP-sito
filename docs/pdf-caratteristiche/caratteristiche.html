@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>StockFlow ERP – Caratteristiche</title>
+<!--
+  Sorgente del PDF «Caratteristiche» (stockflow-caratteristiche.pdf nella radice del sito).
+  Rigenerare con:  node docs/pdf-caratteristiche/genera-pdf.js
+  Ogni .page è un foglio A4 a dimensione fissa: lo script si ferma se un foglio trabocca.
+  Il nome del prodotto compare sempre come testo «StockFlow ERP»: lo script può sostituirlo
+  (opzione --nome "Nuovo nome"), quindi non va mai inserito dentro immagini.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=block" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --gold: #C07821;
+    --gold-light: #E5AB3E;
+    --gold-soft: #D4A84B;
+    --gold-pale: #FBF3E4;
+    --gold-line: #EAD7B4;
+    --carbon: #1A1A1A;
+    --carbon-2: #252525;
+    --ink: #2A2724;
+    --muted: #6E675E;
+    --line: #E8E2D8;
+    --ok: #1E9E52;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #8A857C; }
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    color: var(--ink);
+    font-size: 10.1pt;
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm; height: 297mm; overflow: hidden; position: relative;
+    background: #fff; margin: 0 auto 8mm; page-break-after: always; break-after: page;
+    padding: 19mm 17mm 20mm;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; margin-bottom: 0; }
+  @media print { html, body { background: #fff; } .page { margin: 0; } }
+
+  /* Intestazione e piè di pagina dei fogli interni */
+  .running {
+    position: absolute; left: 17mm; right: 17mm; top: 9mm;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 7.5pt; color: var(--muted); letter-spacing: 0.3px;
+  }
+  .running .brand { display: flex; align-items: center; gap: 6px; font-weight: 600; color: var(--ink); }
+  .mini-logo { width: 16px; height: 16px; border-radius: 4px; background: linear-gradient(135deg, var(--gold), #B8860B); color: #fff; font-size: 7pt; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; }
+  .foot {
+    position: absolute; left: 17mm; right: 17mm; bottom: 9mm;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 7.5pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 3mm;
+  }
+  .foot .num { font-weight: 700; color: var(--gold); }
+
+  /* Titoli */
+  .kicker { font-size: 7.8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--gold); margin-bottom: 1.5mm; }
+  h1.sec { font-size: 21pt; font-weight: 800; line-height: 1.15; color: var(--carbon); margin-bottom: 2.5mm; }
+  .lead { font-size: 10.8pt; color: var(--muted); margin-bottom: 7mm; max-width: 165mm; }
+
+  .block { margin-bottom: 6.6mm; break-inside: avoid; }
+  .block h2 {
+    display: flex; align-items: center; gap: 2.6mm;
+    font-size: 12.8pt; font-weight: 700; color: var(--carbon); margin-bottom: 2.6mm;
+  }
+  .block h2 .ic {
+    width: 7.6mm; height: 7.6mm; border-radius: 2mm; flex-shrink: 0;
+    background: var(--gold-pale); color: var(--gold); border: 1px solid var(--gold-line);
+    display: inline-flex; align-items: center; justify-content: center; font-size: 9.5pt;
+  }
+  .block p { margin-bottom: 1.6mm; }
+  ul.feat { list-style: none; }
+  ul.feat li { position: relative; padding-left: 5mm; margin-bottom: 1.6mm; }
+  ul.feat li::before {
+    content: ""; position: absolute; left: 0.6mm; top: 2.1mm;
+    width: 1.9mm; height: 1.9mm; border-radius: 50%; background: var(--gold-soft);
+  }
+  b, strong { font-weight: 650; color: var(--carbon); }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 8mm; }
+
+  .note {
+    background: var(--gold-pale); border: 1px solid var(--gold-line); border-left: 3px solid var(--gold);
+    border-radius: 2mm; padding: 2.6mm 3.6mm; font-size: 8.9pt; color: var(--ink); margin-top: 1.5mm;
+  }
+  .soon { display: inline-block; font-size: 6.8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; padding: 0.5mm 2mm; border-radius: 1.5mm; background: var(--carbon); color: var(--gold-light); vertical-align: middle; margin-left: 1.5mm; }
+
+  /* ---------- Copertina ---------- */
+  .cover { background: var(--carbon); color: #EDE8DF; padding: 0; }
+  .cover .glow { position: absolute; inset: 0; background:
+      radial-gradient(120mm 120mm at 100% 0%, rgba(229,171,62,0.28), transparent 70%),
+      radial-gradient(110mm 110mm at 0% 100%, rgba(192,120,33,0.22), transparent 70%); }
+  .cover .grid-lines { position: absolute; inset: 0; opacity: 0.07;
+      background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px);
+      background-size: 12mm 12mm; }
+  .cover .inner { position: relative; height: 100%; padding: 22mm 20mm 18mm; display: flex; flex-direction: column; }
+  .cover .logo-row { display: flex; align-items: center; gap: 4mm; }
+  .cover .logo { width: 15mm; height: 15mm; border-radius: 3.5mm; background: linear-gradient(135deg, var(--gold), #B8860B); color: #fff; font-size: 17pt; font-weight: 800; display: flex; align-items: center; justify-content: center; box-shadow: 0 4mm 10mm rgba(192,120,33,0.35); }
+  .cover .logo-name { font-size: 15pt; font-weight: 700; color: #fff; }
+  .cover .tag { margin-top: 44mm; font-size: 9pt; font-weight: 700; letter-spacing: 2.4px; text-transform: uppercase; color: var(--gold-light); }
+  .cover h1 { font-size: 38pt; line-height: 1.05; font-weight: 800; color: #fff; margin-top: 4mm; }
+  .cover h1 span { color: var(--gold-light); }
+  .cover .sub { font-size: 12.5pt; line-height: 1.5; color: #CFC8BC; margin-top: 7mm; max-width: 150mm; }
+  .cover .pills { display: flex; flex-wrap: wrap; gap: 2.5mm; margin-top: 12mm; }
+  .cover .pills span { border: 1px solid rgba(229,171,62,0.45); color: #F0E6D2; border-radius: 20mm; padding: 1.6mm 4mm; font-size: 9pt; background: rgba(255,255,255,0.03); }
+  .cover .pills i { color: var(--gold-light); margin-right: 1.6mm; }
+  .cover .bottom { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 6mm; }
+  .cover .bottom .doc { font-size: 10.5pt; font-weight: 600; color: #fff; }
+  .cover .bottom .doc small { display: block; font-size: 8.5pt; font-weight: 400; color: #A9A295; margin-top: 1mm; }
+  .cover .bottom .by { font-size: 8.5pt; color: #A9A295; text-align: right; }
+
+  /* ---------- Sintesi ---------- */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.4mm; margin-bottom: 6mm; }
+  .tile { border: 1px solid var(--line); border-radius: 3mm; padding: 3.6mm 3.6mm 3.2mm; background: #fff; }
+  .tile .ic { width: 8.5mm; height: 8.5mm; border-radius: 2.4mm; background: var(--carbon); color: var(--gold-light); display: flex; align-items: center; justify-content: center; font-size: 10pt; margin-bottom: 2.4mm; }
+  .tile h3 { font-size: 10pt; font-weight: 700; color: var(--carbon); margin-bottom: 1mm; }
+  .tile p { font-size: 8.6pt; color: var(--muted); line-height: 1.42; }
+
+  .band { background: var(--carbon); color: #E6E0D5; border-radius: 3mm; padding: 5mm 6mm; display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 8mm; }
+  .band h3 { grid-column: 1 / -1; color: #fff; font-size: 11pt; font-weight: 700; }
+  .band div { font-size: 9pt; display: flex; gap: 2.4mm; }
+  .band i { color: var(--gold-light); margin-top: 0.9mm; }
+
+  .who { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 6mm; }
+  .who div { border-top: 2px solid var(--gold); padding-top: 3mm; }
+  .who h4 { font-size: 10.2pt; font-weight: 700; color: var(--carbon); margin-bottom: 1.4mm; display: flex; align-items: center; gap: 2mm; }
+  .who h4 i { color: var(--gold); }
+  .who p { font-size: 8.9pt; color: var(--muted); line-height: 1.5; }
+
+  /* ---------- Tabella ruoli ---------- */
+  table.roles { width: 100%; border-collapse: collapse; font-size: 8.6pt; margin-top: 1mm; }
+  table.roles th { background: var(--carbon); color: #fff; font-weight: 600; text-align: left; padding: 1.8mm 2.4mm; }
+  table.roles th.c, table.roles td.c { text-align: center; width: 22mm; }
+  table.roles td { padding: 1.5mm 2.4mm; border-bottom: 1px solid var(--line); }
+  table.roles tr:nth-child(even) td { background: #FBF9F5; }
+  table.roles .y { color: var(--ok); }
+  table.roles .n { color: #C9C2B6; }
+
+  /* ---------- Retro ---------- */
+  .back { background: var(--carbon); color: #E6E0D5; padding: 0; }
+  .back .inner { position: relative; height: 100%; padding: 26mm 20mm 18mm; display: flex; flex-direction: column; }
+  .back h2 { font-size: 24pt; font-weight: 800; color: #fff; line-height: 1.15; }
+  .back h2 span { color: var(--gold-light); }
+  .back .sub { font-size: 11pt; color: #CFC8BC; margin-top: 5mm; max-width: 150mm; }
+  .back .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 12mm; }
+  .back .card { border: 1px solid rgba(229,171,62,0.35); border-radius: 3mm; padding: 5mm; background: rgba(255,255,255,0.03); }
+  .back .card i { color: var(--gold-light); font-size: 13pt; }
+  .back .card h3 { color: #fff; font-size: 10.5pt; margin: 2.5mm 0 1mm; }
+  .back .card p { font-size: 9.2pt; color: #CFC8BC; word-break: break-word; }
+  .back .card a { color: var(--gold-light); text-decoration: none; }
+  .back .sign { margin-top: auto; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 6mm; display: flex; justify-content: space-between; align-items: flex-end; font-size: 8.5pt; color: #A9A295; }
+  .back .sign strong { color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- ======================= 1. COPERTINA ======================= -->
+<section class="page cover">
+  <div class="glow"></div><div class="grid-lines"></div>
+  <div class="inner">
+    <div class="logo-row"><div class="logo">SF</div><div class="logo-name">StockFlow ERP</div></div>
+    <div class="tag">Caratteristiche del gestionale</div>
+    <h1>Il tuo negozio,<br><span>tutto in un unico posto.</span></h1>
+    <p class="sub">Cassa, magazzino, clienti, gift card e incassi di uno o più punti vendita, dal computer, dal tablet o dal telefono. Senza installare nulla e anche quando internet si ferma.</p>
+    <div class="pills">
+      <span><i class="fas fa-cash-register"></i>Cassa veloce</span>
+      <span><i class="fas fa-wifi"></i>Vendite anche offline</span>
+      <span><i class="fas fa-store"></i>Più negozi</span>
+      <span><i class="fas fa-gift"></i>Gift card e buoni</span>
+      <span><i class="fas fa-star"></i>Fedeltà a punti</span>
+      <span><i class="fas fa-envelope-open-text"></i>Chiusura via email</span>
+    </div>
+    <div class="bottom">
+      <div class="doc">Scheda delle caratteristiche<small>Edizione <span class="edition">ottobre 2026</span></small></div>
+      <div class="by">Progettato e sviluppato da<br><strong style="color:#fff">EMC Digital Solutions</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 2. IN BREVE ======================= -->
+<section class="page">
+  <div class="running"><div class="brand"><span class="mini-logo">SF</span>StockFlow ERP</div><div>Caratteristiche</div></div>
+
+  <div class="kicker">In breve</div>
+  <h1 class="sec">Tutto quello che serve a un negozio, già pronto</h1>
+  <p class="lead">StockFlow ERP è il gestionale per i negozi al dettaglio, pensato in particolare per chi vende articoli con taglie e colori. Funziona nel browser: si apre come un sito, su computer, tablet e telefono, con un unico archivio condiviso da tutti i punti vendita.</p>
+
+  <div class="tiles">
+    <div class="tile"><div class="ic"><i class="fas fa-cash-register"></i></div><h3>Cassa</h3><p>Vendite con lettore di codici a barre, ricerca per nome, sconti, pagamenti in contanti, carta o misti.</p></div>
+    <div class="tile"><div class="ic"><i class="fas fa-wifi"></i></div><h3>Anche senza internet</h3><p>Le vendite restano in coda e partono da sole quando la rete torna, senza doppioni.</p></div>
+    <div class="tile"><div class="ic"><i class="fas fa-rotate-left"></i></div><h3>Resi e cambi</h3><p>Reso al banco o cambio in cassa, anche tra negozi diversi, con buono reso a scalare.</p></div>
+    <div class="tile"><div class="ic"><i class="fas fa-box-archive"></i></div><h3>Merce da parte</h3><p>Articoli bloccati per il cliente con acconto, ricevuta e ritiro con il solo saldo.</p></div>
+    <div class="tile"><div class="ic"><i class="fas fa-gift"></i></div><h3>Gift card</h3><p>Vendute al banco o sul sito del negozio, spendibili in più acquisti e in tutti i negozi.</p></div>
+    <div class="tile"><div class="ic"><i class="fas fa-ticket"></i></div><h3>Buoni sconto</h3><p>Automatici a soglia di spesa o emessi a mano, in euro o in percentuale.</p></div>
+    <div class="tile"><div class="ic"><i class="fas fa-star"></i></div><h3>Fedeltà a punti</h3><p>Tessera per ogni cliente, punti a ogni acquisto, premi in cassa e consenso privacy dal telefono.</p></div>
+    <div class="tile"><div class="ic"><i class="fas fa-warehouse"></i></div><h3>Magazzino multi-negozio</h3><p>Giacenze per taglia e colore, sotto-scorta, movimenti e trasferimenti tra sedi.</p></div>
+    <div class="tile"><div class="ic"><i class="fas fa-chart-column"></i></div><h3>Chiusura e report</h3><p>Chiusura giornata via email, report per periodo, analisi per dipendente e per negozio.</p></div>
+  </div>
+
+  <div class="band">
+    <h3>Come si lavora</h3>
+    <div><i class="fas fa-laptop"></i><span><b style="color:#fff">Nessuna installazione</b>: basta un browser aggiornato su computer, tablet o telefono.</span></div>
+    <div><i class="fas fa-barcode"></i><span><b style="color:#fff">Lettore di codici a barre</b> per articoli, scontrini, gift card e buoni.</span></div>
+    <div><i class="fas fa-print"></i><span><b style="color:#fff">Stampante per scontrini</b> facoltativa per scontrino di cortesia, regalo e buoni.</span></div>
+    <div><i class="fas fa-users-gear"></i><span><b style="color:#fff">Ruoli separati</b> per titolare, responsabile e commesse, negozio per negozio.</span></div>
+  </div>
+
+  <div class="who">
+    <div><h4><i class="fas fa-user-tie"></i>Per il titolare</h4><p>Incassi di ogni negozio nella casella email a fine giornata, report per periodo, analisi per dipendente e per negozio, regole di sconti e buoni decise una volta per tutte.</p></div>
+    <div><h4><i class="fas fa-clipboard-list"></i>Per il responsabile</h4><p>Catalogo, saldi, carichi, trasferimenti tra sedi e report di magazzino, sempre limitati ai negozi di cui si occupa.</p></div>
+    <div><h4><i class="fas fa-bag-shopping"></i>Per la commessa</h4><p>Una cassa semplice: si legge il codice, si sceglie il pagamento, si stampa. Resi, gift card e merce da parte in pochi tocchi.</p></div>
+  </div>
+
+  <div class="foot"><span>StockFlow ERP · Caratteristiche</span><span class="num">2</span></div>
+</section>
+
+<!-- ======================= 3. CASSA ======================= -->
+<section class="page">
+  <div class="running"><div class="brand"><span class="mini-logo">SF</span>StockFlow ERP</div><div>Cassa, resi e cambi</div></div>
+
+  <div class="kicker">Vendere</div>
+  <h1 class="sec">Cassa e vendite</h1>
+  <p class="lead">Una schermata sola per vendere in pochi secondi, pensata per il bancone e per il tablet.</p>
+
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-cash-register"></i></span>Nuova vendita</h2>
+    <ul class="feat">
+      <li><b>Lettura del codice a barre</b> dell'etichetta con la pistola; scelta automatica della taglia e del colore quando servono.</li>
+      <li><b>Ricerca per nome</b> per gli articoli senza etichetta: bastano due lettere di nome, marca, colore o taglia; compaiono solo gli articoli disponibili nel negozio, con prezzo e pezzi.</li>
+      <li><b>Aggiunta rapida</b> di un articolo nuovo direttamente dalla cassa, senza interrompere la vendita.</li>
+      <li><b>Cliente collegato</b> in un attimo, anche nuovo (bastano nome e cognome), e <b>commessa</b> che ha seguito la vendita.</li>
+      <li><b>Sconti</b> in percentuale o in euro sul singolo articolo o sull'intero scontrino, entro i limiti decisi dal titolare.</li>
+      <li><b>Pagamenti</b> in contanti (con calcolo del resto), con carta o misti, combinabili con gift card, buono reso, buoni sconto e premi fedeltà.</li>
+      <li><b>IVA</b> (Imposta sul Valore Aggiunto) per aliquota calcolata in automatico sui prezzi esposti; la giacenza si aggiorna a ogni vendita.</li>
+    </ul>
+  </div>
+
+  <div class="cols">
+    <div class="block">
+      <h2><span class="ic"><i class="fas fa-receipt"></i></span>Scontrini</h2>
+      <ul class="feat">
+        <li><b>Scontrino di cortesia</b> (non fiscale), anche con stampa automatica.</li>
+        <li><b>Scontrino regalo</b> senza prezzi né dati del cliente, con codice a barre per cambi e resi.</li>
+        <li>Ricerca di una vendita leggendo il codice dello scontrino.</li>
+      </ul>
+    </div>
+    <div class="block">
+      <h2><span class="ic"><i class="fas fa-wifi"></i></span>Vendite offline</h2>
+      <ul class="feat">
+        <li>Se internet cade la cassa <b>continua a vendere</b>.</li>
+        <li>Le vendite partono da sole al ritorno della rete, <b>mai due volte</b>.</li>
+        <li>Ogni vendita mantiene l'ora reale e finisce nella chiusura del giorno giusto.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-rotate-left"></i></span>Resi, cambi e buono reso</h2>
+    <ul class="feat">
+      <li><b>Reso totale o parziale</b> partendo dal codice dello scontrino (anche dello scontrino regalo): la merce rientra subito in giacenza.</li>
+      <li><b>Cambio in cassa</b>: gli articoli resi e quelli nuovi stanno nello stesso scontrino, con la differenza calcolata in automatico.</li>
+      <li><b>Buono reso a scalare</b>: si stampa con codice a barre e si spende in uno o più acquisti; validità regolabile (15 giorni se non indicato).</li>
+      <li><b>Resi tra negozi</b>: un articolo comprato in un punto vendita si rende in un altro, vedendo solo i dati necessari al reso.</li>
+      <li>Punti fedeltà e buoni sconto collegati alla vendita vengono ricalcolati in automatico.</li>
+    </ul>
+  </div>
+
+  <div class="foot"><span>StockFlow ERP · Caratteristiche</span><span class="num">3</span></div>
+</section>
+
+<!-- ======================= 4. FIDELIZZARE ======================= -->
+<section class="page">
+  <div class="running"><div class="brand"><span class="mini-logo">SF</span>StockFlow ERP</div><div>Merce da parte, gift card e buoni</div></div>
+
+  <div class="kicker">Incassare di più</div>
+  <h1 class="sec">Merce da parte, gift card e buoni sconto</h1>
+  <p class="lead">Gli strumenti che fanno tornare il cliente in negozio, con ogni euro tracciato nella chiusura di cassa.</p>
+
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-box-archive"></i></span>Merce da parte con acconto</h2>
+    <ul class="feat">
+      <li>Dalla cassa: articoli, cliente, <b>acconto</b> e metodo di pagamento; la merce esce subito dalla disponibilità.</li>
+      <li><b>Ricevuta</b> con codice e codice a barre per il cliente; altri acconti in qualsiasi momento.</li>
+      <li>Al ritiro diventa una vendita normale e si incassa <b>solo il saldo</b>; gli acconti non vengono contati due volte.</li>
+      <li>Scadenza regolabile (15 giorni se non indicato), proroga, annullo con acconto trasformato in buono, restituito o trattenuto.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-gift"></i></span>Gift card</h2>
+    <ul class="feat">
+      <li><b>Vendita al banco</b> in pochi passi, con PDF (Portable Document Format) stampabile, codice a barre, destinatario e dedica.</li>
+      <li><b>Vendita online</b> dal sito del negozio con pagamento con carta: il destinatario riceve la gift card per email, con logo e colori del negozio.</li>
+      <li><b>Spendibile in più acquisti</b> e in tutti i punti vendita, con ricarica e verifica del saldo in un attimo.</li>
+      <li>Limiti per la commessa (da 5 € a 500 €, validità standard 12 mesi); scadenze diverse e blocco di una card smarrita riservati al titolare o al responsabile.</li>
+      <li><b>Registro gift card</b> per negozio e periodo, in PDF per il commercialista: vendute in negozio, vendute online, utilizzate e saldo residuo.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-ticket"></i></span>Buoni sconto</h2>
+    <ul class="feat">
+      <li><b>In euro</b> (credito a scalare) o <b>in percentuale</b> (per un acquisto).</li>
+      <li><b>Emissione automatica a soglia</b> di spesa (per esempio: spendi 100 €, ricevi un buono da 10 €) o emissione a mano dai ruoli autorizzati, entro un valore massimo.</li>
+      <li>Consegna con <b>biglietto stampato</b> con codice a barre o per <b>email</b> ai clienti che hanno dato il consenso.</li>
+      <li>Controlli automatici in cassa: scadenza, spesa minima, cliente intestatario, combinazione con altri vantaggi.</li>
+      <li>Annullo automatico se la vendita che ha generato il buono viene resa; registro completo esportabile per Excel.</li>
+    </ul>
+  </div>
+
+  <div class="foot"><span>StockFlow ERP · Caratteristiche</span><span class="num">4</span></div>
+</section>
+
+<!-- ======================= 5. CLIENTI E PRODOTTI ======================= -->
+<section class="page">
+  <div class="running"><div class="brand"><span class="mini-logo">SF</span>StockFlow ERP</div><div>Clienti, fedeltà e catalogo</div></div>
+
+  <div class="kicker">Conoscere i clienti</div>
+  <h1 class="sec">Clienti, fedeltà e privacy</h1>
+  <p class="lead">Un'anagrafica semplice da tenere in ordine, con il consenso privacy dato dal cliente in prima persona.</p>
+
+  <div class="cols">
+    <div class="block">
+      <h2><span class="ic"><i class="fas fa-users"></i></span>Anagrafica clienti</h2>
+      <ul class="feat">
+        <li>Bastano <b>nome e cognome</b>; telefono, email e data di nascita facoltativi.</li>
+        <li>Avvisi contro i doppioni.</li>
+        <li>Storico acquisti, punti e premi nella scheda cliente.</li>
+        <li>Ricerca per nome, telefono, note o codice tessera.</li>
+      </ul>
+    </div>
+    <div class="block">
+      <h2><span class="ic"><i class="fas fa-star"></i></span>Programma fedeltà</h2>
+      <ul class="feat">
+        <li><b>Tessera</b> con codice per ogni cliente e tessera digitale sul telefono.</li>
+        <li>Punti per ogni euro, soglia e tipo di premio a scelta.</li>
+        <li>Premio proposto in cassa al raggiungimento della soglia.</li>
+        <li>Compleanni della settimana sempre a portata di mano.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-qrcode"></i></span>Consenso privacy dal telefono del cliente</h2>
+    <p>Come richiede il GDPR (General Data Protection Regulation, il Regolamento europeo sulla protezione dei dati), il consenso lo dà il cliente: inquadra un codice QR (Quick Response, il quadratino che si legge con la fotocamera) personale mostrato in cassa, legge l'informativa e conferma. I nuovi clienti possono iscriversi da soli alla carta fedeltà dalla locandina in negozio.</p>
+  </div>
+
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-print"></i></span>Materiale da stampare</h2>
+    <p>Tre locandine A4 con QR, in versione scura o chiara, pronte per ogni negozio: <b>«Lasciaci una recensione»</b> (scheda Google del negozio), <b>«Regala una Gift Card»</b> e <b>«Iscriviti alla Carta Fedeltà»</b>.</p>
+  </div>
+
+  <div class="kicker" style="margin-top:6mm">Il catalogo</div>
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-tags"></i></span>Prodotti con taglie, colori e codici a barre</h2>
+    <ul class="feat">
+      <li>Scheda con brand, categoria, genere, fascia d'età, stagione, prezzo di vendita e di acquisto, aliquota IVA e foto facoltativa.</li>
+      <li><b>Varianti taglia e colore</b>, ognuna con la sua giacenza per negozio e la sua scorta minima.</li>
+      <li>Riconoscimento degli articoli dal <b>codice a barre</b> già presente sull'etichetta del fornitore.</li>
+      <li><b>Import da file CSV</b> (Comma-Separated Values, il formato a colonne che si apre con Excel), con modello, anteprima ed errori riga per riga.</li>
+      <li><b>Saldi</b> per brand, categoria o singoli articoli, con date di inizio e fine; politica sconti con sconto massimo e blocco del doppio sconto.</li>
+    </ul>
+  </div>
+
+  <div class="foot"><span>StockFlow ERP · Caratteristiche</span><span class="num">5</span></div>
+</section>
+
+<!-- ======================= 6. MAGAZZINO E CHIUSURA ======================= -->
+<section class="page">
+  <div class="running"><div class="brand"><span class="mini-logo">SF</span>StockFlow ERP</div><div>Magazzino e chiusura giornata</div></div>
+
+  <div class="kicker">Tenere i conti</div>
+  <h1 class="sec">Magazzino, negozi e chiusura giornata</h1>
+  <p class="lead">Ogni pezzo tracciato in ogni sede, e a fine giornata il riepilogo arriva da solo nella casella del titolare.</p>
+
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-warehouse"></i></span>Magazzino</h2>
+    <ul class="feat">
+      <li><b>Giacenze in tempo reale</b> per articolo, taglia, colore e negozio, con il valore del magazzino.</li>
+      <li><b>Sotto-scorta</b>: gli articoli da riordinare evidenziati nella Dashboard e nell'inventario.</li>
+      <li><b>Carico e scarico</b> veloce con il lettore, anche di più articoli in una volta; correzioni dopo l'inventario con motivazione.</li>
+      <li><b>Storico movimenti</b> (carico, scarico, vendita, reso, correzione, trasferimento) con data, utente e note.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-store"></i></span>Più negozi e trasferimenti</h2>
+    <ul class="feat">
+      <li>Un solo gestionale per tutti i punti vendita; ogni persona lavora sui negozi a cui è assegnata.</li>
+      <li><b>Giacenze dell'altro negozio</b> consultabili per dire subito al cliente se un articolo c'è.</li>
+      <li><b>Trasferimenti</b> con percorso controllato: bozza, richiesta, spedizione, ricezione anche parziale. La merce esce dall'origine solo alla spedizione ed entra a destinazione alla ricezione.</li>
+      <li>Gift card valide ovunque e resi possibili in un negozio diverso da quello d'acquisto.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-clipboard-check"></i></span>Chiusura giornata</h2>
+    <ul class="feat">
+      <li>Riepilogo del giorno per negozio: vendite, pezzi, incassi in contanti e con carta (anche dei pagamenti misti), resi e <b>netto di cassa</b>.</li>
+      <li><b>Email automatica</b> al titolare all'orario scelto, con destinatari in copia, oppure invio con un tocco dalla cassa.</li>
+      <li>Report in <b>PDF</b> stampabile e file del <b>venduto per Excel</b>, con una riga per ogni articolo di ogni scontrino.</li>
+      <li>Elenco delle vendite con ora e cliente, totali per commessa, articoli venduti per categoria e per marca.</li>
+      <li>Gift card vendute, acconti della merce da parte, buono reso e buoni sconto della giornata, ciascuno al posto giusto.</li>
+    </ul>
+    <div class="note"><b>Netto di cassa</b> = totale incassato (contanti, carta, misto) meno i resi al banco. I cambi fatti in cassa sono già compensati nello scontrino e non vengono sottratti due volte; gli acconti della merce da parte contano nel giorno in cui sono versati.</div>
+  </div>
+
+  <div class="foot"><span>StockFlow ERP · Caratteristiche</span><span class="num">6</span></div>
+</section>
+
+<!-- ======================= 7. ANALISI, RUOLI, DATI ======================= -->
+<section class="page">
+  <div class="running"><div class="brand"><span class="mini-logo">SF</span>StockFlow ERP</div><div>Report, ruoli e sicurezza</div></div>
+
+  <div class="kicker">Decidere con i numeri</div>
+  <h1 class="sec">Report, ruoli e sicurezza dei dati</h1>
+  <p class="lead">I numeri del negozio sempre pronti, il personale con i permessi giusti e i dati al sicuro.</p>
+
+  <div class="cols">
+    <div class="block">
+      <h2><span class="ic"><i class="fas fa-chart-column"></i></span>Report</h2>
+      <ul class="feat">
+        <li><b>Vendite e resi</b> di qualsiasi periodo in PDF, scaricabili o inviati per email all'amministratore.</li>
+        <li>Report di <b>stock</b>, <b>movimenti</b> e <b>vendite per commessa</b> esportabili per Excel.</li>
+        <li><b>Registro attività</b>: chi ha fatto cosa e quando, non modificabile.</li>
+      </ul>
+    </div>
+    <div class="block">
+      <h2><span class="ic"><i class="fas fa-ranking-star"></i></span>Analisi</h2>
+      <ul class="feat">
+        <li><b>Per dipendente</b>: vendite, scontrino medio, articoli, resi, ricavo netto, metodi di pagamento.</li>
+        <li><b>Per negozio</b>: confronto tra sedi e variazione rispetto al periodo precedente.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-user-shield"></i></span>Ruoli e permessi</h2>
+    <table class="roles">
+      <thead><tr><th>Funzione</th><th class="c">Titolare</th><th class="c">Responsabile</th><th class="c">Commessa</th></tr></thead>
+      <tbody>
+        <tr><td>Cassa, resi, merce da parte, gift card, chiusura giornata</td><td class="c y"><i class="fas fa-check"></i></td><td class="c y"><i class="fas fa-check"></i></td><td class="c y"><i class="fas fa-check"></i></td></tr>
+        <tr><td>Clienti, carico e scarico merce, locandine</td><td class="c y"><i class="fas fa-check"></i></td><td class="c y"><i class="fas fa-check"></i></td><td class="c y"><i class="fas fa-check"></i></td></tr>
+        <tr><td>Prodotti, import, saldi, correzioni, trasferimenti, report</td><td class="c y"><i class="fas fa-check"></i></td><td class="c y"><i class="fas fa-check"></i></td><td class="c n"><i class="fas fa-minus"></i></td></tr>
+        <tr><td>Fedeltà, analisi, utenti, commesse, impostazioni, export dei dati</td><td class="c y"><i class="fas fa-check"></i></td><td class="c n"><i class="fas fa-minus"></i></td><td class="c n"><i class="fas fa-minus"></i></td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:2mm; font-size:8.8pt; color:var(--muted)">Le <b>commesse</b> si registrano a parte per attribuire ogni vendita a chi l'ha seguita, anche con un unico accesso alla cassa. Il personale si può caricare in blocco da file CSV.</p>
+  </div>
+
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-shield-halved"></i></span>I tuoi dati, al sicuro e sempre tuoi</h2>
+    <ul class="feat">
+      <li><b>Export completo</b> in un clic (Impostazioni › «I tuoi dati»): un archivio ZIP (file compresso) con un file per tipo di dato, apribile con Excel.</li>
+      <li><b>Backup automatico ogni notte</b>, verificato, conservato 30 giorni, più una copia mensile per un anno.</li>
+      <li>Connessione cifrata, password conservate solo in forma cifrata, dati separati per ogni azienda, accessi limitati per ruolo e per negozio.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h2><span class="ic"><i class="fas fa-hourglass-half"></i></span>In arrivo <span class="soon">Prossimamente</span></h2>
+    <p><b>Collegamento al registratore telematico</b>: emissione dello scontrino fiscale e del documento di reso direttamente dalla cassa. È in fase di collaudo; nel frattempo lo scontrino fiscale si emette con il proprio registratore.</p>
+  </div>
+
+  <div class="foot"><span>StockFlow ERP · Caratteristiche</span><span class="num">7</span></div>
+</section>
+
+<!-- ======================= 8. RETRO ======================= -->
+<section class="page back">
+  <div class="glow" style="position:absolute;inset:0;background:radial-gradient(130mm 130mm at 100% 100%, rgba(229,171,62,0.22), transparent 70%)"></div>
+  <div class="inner">
+    <div class="logo-row" style="display:flex;align-items:center;gap:4mm"><div class="logo" style="width:13mm;height:13mm;border-radius:3mm;background:linear-gradient(135deg,#C07821,#B8860B);color:#fff;font-weight:800;font-size:15pt;display:flex;align-items:center;justify-content:center">SF</div><div style="font-size:14pt;font-weight:700;color:#fff">StockFlow ERP</div></div>
+    <h2 style="margin-top:22mm">Vuoi vederlo al lavoro<br><span>nel tuo negozio?</span></h2>
+    <p class="sub">Scrivici per una dimostrazione: vedrai la cassa, il magazzino e la chiusura giornata lavorare come in negozio.</p>
+    <div class="cards">
+      <div class="card"><i class="fas fa-globe"></i><h3>Sito web</h3><p><a href="https://www.emcdigitalsolutions.it/stockflowERP/">www.emcdigitalsolutions.it/stockflowERP</a></p></div>
+      <div class="card"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><p><a href="https://wa.me/393294348075">+39 329 434 8075</a></p></div>
+      <div class="card"><i class="fas fa-book-open"></i><h3>Manuale d'uso</h3><p><a href="https://www.emcdigitalsolutions.it/stockflowERP/manuale.html">Tutte le funzioni spiegate passo per passo</a></p></div>
+      <div class="card"><i class="fas fa-shield-halved"></i><h3>Dati sempre tuoi</h3><p>Export completo in qualsiasi momento e backup automatico ogni notte.</p></div>
+    </div>
+    <div class="sign">
+      <div>Progettato e sviluppato da<br><strong>EMC Digital Solutions</strong> · <a href="https://www.emcdigitalsolutions.it" style="color:#E5AB3E;text-decoration:none">www.emcdigitalsolutions.it</a></div>
+      <div style="text-align:right">Le funzioni descritte sono quelle disponibili<br>alla data di questa edizione.</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

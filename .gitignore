@@ -5,3 +5,4 @@ node_modules/
 .env
 data/users.json
 data/sync_config.json
+docs/pdf-caratteristiche/.tmp-render.html
