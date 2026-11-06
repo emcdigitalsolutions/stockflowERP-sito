@@ -1,4 +1,2 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://emcdigitalsolutions.github.io/stockflowERP-sito/sitemap.xml
